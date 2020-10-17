@@ -1,0 +1,160 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <style>
+      #bat{
+        margin-top: 0px;
+        margin-right: 6px;
+        margin-left: 12px;
+      }
+      #home{
+
+        margin-top: -30px;
+    margin-right: 24px;
+      }
+      #virus{
+
+        margin-top: 41px;;
+      }
+      .navbar{
+        margin-bottom: 0px;;
+      }
+      #contact{
+        margin-top: 30px;
+      }
+    </style>
+</head>
+    
+<body>
+    <nav class="navbar navbar-default ">
+      <div class="navbar-header">
+        
+        <img id="bat" src="images/coronavirus.png">
+        <a class="bdname" href="#" style="color: #a8df65;font-size: x-large;">Covid.</a>
+      </div>
+          
+          <ul class="nav navbar-nav navbar-right"style="font-family:Verdana, Geneva, Tahoma, sans-serif;" >
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Prevention</a></li>
+            <li><a href="#">Symptoms</a></li>
+            <li><a href="#"></a></li>
+          </ul>
+        
+      </nav>
+
+    <div class="jumbotron text-center" style="background-color: #a8df65;;">
+      <span class="d-block subheading" style="font-family:Verdana, Geneva, Tahoma, sans-serif;">Covid-19 Awareness</span>
+      
+        <h1> <img id="home" src="images/stayhome1.png">Stay Safe. Stay Home.</h1>
+        
+      </div>
+      
+      <div class="container" > 
+        <h1 class=" text-center " style="color: #a8df65; font-family:Verdana, Geneva, Tahoma, sans-serif;">Coronavirus Statistics</h1>
+        <br>
+        <br>
+      <div class="row" >
+        <div class="col-sm-4">
+          <img src="images/active.png">
+          <strong id="active" style="font-size:xx-large;"></strong>
+          
+          <p>ACTIVE</p>
+        </div>
+        <div class="col-sm-4">
+          <img src="images/coffin.png">
+          <strong id="death" style="font-size:xx-large;"></strong>
+          <p>DEATHS</p>
+        </div>
+        <div class="col-sm-4">
+          <img src="images/rec.png">
+          <strong id="recovered" style="font-size:xx-large;"></strong>
+          <p>RECOVERED</p>
+        </div>
+      </div>
+      </div>
+        <br>
+        <br>
+      <div class="container">
+        <div class="col-sm-6">
+          <img id="virus"src="images/virus.svg" width="350" >
+        </div>
+        <div class="col-sm-6" style="font-family:Verdana, Geneva, Tahoma, sans-serif;" >
+          <h1 class="" style="color: #a8df65;">What is Coronavirus?</h1>
+            <p style="font-size: large; font-style:normal;">Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+
+              Most people infected with the COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring special treatment.  Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic respiratory disease, and cancer are more likely to develop serious illness.
+              
+              The best way to prevent and slow down transmission is to be well informed about the COVID-19 virus, the disease it causes and how it spreads. Protect yourself and others from infection by washing your hands or using an alcohol based rub frequently and not touching your face. </p>
+        </div>
+          
+          
+      </div>
+      <div id="contact" class="container-fluid bg-grey">
+        <h2 class="text-center" style="color: #a8df65;">CONTACT</h2>
+        <br>
+        <div class="row">
+          <div class="col-sm-5" style="font-family:Verdana, Geneva, Tahoma, sans-serif;">
+            <p>Contact us and we'll get back to you within 24 hours.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span> Nainital,UK</p>
+            <p><span class="glyphicon glyphicon-phone"></span> +91 8077927488</p>
+            <p><span class="glyphicon glyphicon-envelope"></span> parthbisht22@gmail.com</p>
+          </div>
+          <div class="col-sm-7 slideanim">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+            <div class="row">
+              <div class="col-sm-12 form-group">
+                <button class="btn btn-default pull-right" type="submit">Send</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p style="color: #a8df65;">Copyright ©2020 All rights reserved | Made by parth raj bisht</p>
+      </footer>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <script>
+        $(document).ready(function(){
+var url="https://api.covid19api.com/world/total"
+		$.getJSON(url,function(data){
+			console.log(data);
+			var total_global=data.TotalConfirmed
+			$("#totalG").append(total_global)
+		})
+
+
+var url="https://api.covid19india.org/data.json"	
+
+		$.getJSON(url,function(data){
+			console.log(data);
+		
+			var total_confirmed=data.statewise[0].confirmed
+			var recovered=data.statewise[0].recovered
+			var death=data.statewise[0].deaths
+			var active=data.statewise[0].active
+			$("#confirmed").append(total_confirmed)
+			$("#recovered").append(recovered)
+			$("#death").append(death)
+			$("#active").append(active)
+		})
+})
+      </script>
+</body>
+
+</html>
